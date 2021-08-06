@@ -9,12 +9,12 @@ import os
 
 PATH = os.getcwd()
 
-model_path= "models/best.pt"
+model_path= "models/last.pt"
 
 app = Flask(__name__)
 
 def predict_label(img_path):
-	s= run(weights=model_path, source=img_path)
+	s= run(weights=model_path, source=img_path,conf_thres=0.9)
 
 	return s
 
